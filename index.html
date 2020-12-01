@@ -3,13 +3,13 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121907600-1"></script>
-<script>
+<!-- <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-121907600-1');
-</script>
+</script> -->
 
 <head>
   <meta charset=utf-8 />
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
   <style>
   #map {
-    background: #448ee4;
+    background: #FFFFFF;
     width: 100%;
   }
   #title {
@@ -243,16 +243,16 @@
   <script>
 
   // initialize map, centered on KY
-  var southWest = L.latLng(35.51, -90.29),
-      northEast = L.latLng(40.24, -80.69),
+  var southWest = L.latLng(20, -127),
+      northEast = L.latLng(55, -60),
       bounds = L.latLngBounds(southWest, northEast);
 
   var map = L.map('map', {
       zoomSnap: .05,
-      center: [37.839333, -85.7],
+      center: [39.05983480193414, -95.7196030208893],
       maxBounds: bounds,
-      zoom: 7.5,
-      minZoom: 6.5,
+      zoom: 4.5,
+      minZoom: 4.5,
       maxZoom: 18,
     });
 
@@ -260,18 +260,18 @@
     var accessToken = 'pk.eyJ1Ijoia29uc29sdXMiLCJhIjoiY2pnd2d2dXJrMTk4MzMzcGRmNjl6enpmYyJ9.MC43t60Y6axGbi32YET_tA'
 
   // request a mapbox raster tile layer and add to map
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + accessToken, {
-      maxZoom: 18,
-      id: 'mapbox.light',
-      accessToken: accessToken
-    }).addTo(map);
+  L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+    ext: 'png'
+  }).addTo(map);
 
   // set display style for county polygons
     var countyStyle = {
-        "color": "#005d7e",
-        "weight": 1,
-        "fillOpacity" : 0.05,
-        "opacity": 0.2
+        "color": "#000000",
+        "weight": 2,
+        "fillOpacity" : 0.1,
+        "opacity": 0.5
     };
 
     // set icons for layer types
@@ -324,7 +324,7 @@
     });
 
     // load KY county polygons
-  $.getJSON("./data/ky-counties.geojson", function(counties) {
+  $.getJSON("./data/us-states.geojson", function(counties) {
 
         // load CSV file
         omnivore.csv('data/GeocodeHortDirectory.csv')
@@ -551,7 +551,7 @@
       var dataLayer = L.geoJson(data, {
         style: style,
         onEachFeature: function (feature, layer) {
-              layer.bindTooltip("<h2>" + feature.properties.name + " County</h2>");
+              layer.bindTooltip("<h2>" + feature.properties.name + "</h2>");
         }
       });
       dataLayer.addTo(map);
