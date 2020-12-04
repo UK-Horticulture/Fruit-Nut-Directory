@@ -13,7 +13,7 @@
 
 <head>
   <meta charset=utf-8 />
-  <title>Horticulture Resource Directory</title>
+  <title>Fruit and Nut Source Directory</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <link href='https://api.mapbox.com/mapbox-assembly/v0.21.2/assembly.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
@@ -176,7 +176,7 @@
 <body>
 
   <section id="title">
-    <b>Geographic Horticulture Directory of Kentucky</b>
+    <b>Fruit and Nut Source Directory</b>
   </section>
 
   <div id="map" class='viewport-full viewport-full-ml'></div>
@@ -275,14 +275,20 @@
     };
 
     // set icons for layer types
-    var greenhouseIcon = L.icon({
-        iconUrl: "./icons/flower.png",
+    var fruitIcon = L.icon({
+        iconUrl: "./icons/fruit-icon.png",
         iconSize: [35, 35],
         popupAnchor: [0, -15]
     });
 
-    var nursery_sourceIcon = L.icon({
-        iconUrl: "./icons/nursery_source.png",
+    var nutIcon = L.icon({
+        iconUrl: "./icons/nut-icon.png",
+        iconSize: [35, 35],
+        popupAnchor: [0, -15]
+    });
+
+    var FruitNutIcon = L.icon({
+        iconUrl: "./icons/fruit&nut-icon.png",
         iconSize: [35, 35],
         popupAnchor: [0, -15]
     });
@@ -308,10 +314,10 @@
 
     // create layer groups by resource type
 
-    var greenhouseLayer = L.geoJson(data, {
-      filter: greenhouseFilter,
+    var fruitLayer = L.geoJson(data, {
+      filter: fruitFilter,
       pointToLayer: function(feature,latlng) {
-          return L.marker(latlng, {icon: greenhouseIcon});
+          return L.marker(latlng, {icon: fruitIcon});
         },
         onEachFeature : function(feature,layer) {
           var props = feature.properties;
@@ -323,10 +329,10 @@
         }
       }).addTo(map);
 
-      var nursery_sourceLayer = L.geoJson(data, {
-        filter: nursery_sourceFilter,
+      var nutLayer = L.geoJson(data, {
+        filter: nutFilter,
           pointToLayer: function(feature,latlng) {
-              return L.marker(latlng, {icon: nursery_sourceIcon});
+              return L.marker(latlng, {icon: nutIcon});
             },
             onEachFeature : function(feature,layer) {
               var props = feature.properties;
@@ -338,16 +344,33 @@
             }
         }).addTo(map);
 
+        var FruitNutLayer = L.geoJson(data, {
+          filter: FruitNutFilter,
+            pointToLayer: function(feature,latlng) {
+                return L.marker(latlng, {icon: FruitNutIcon});
+              },
+              onEachFeature : function(feature,layer) {
+                var props = feature.properties;
+                var locationPopup =
+                  "<h2>" + props.location_type + "</h2><br><b>" + props.org_name + "</b><br><br>" + props.address + "<br><br>Minimum Invoice Amount:  <b><font color='red'>" + props.contact_ti +
+                  "<br></font><br>Sampling Notes:<br></b>" + props.optional_r + "</font><p><b>Contact Information:  <br></b></b>" + props.phone + "<br><a href='mailto:" +
+                  props.email + "'>" + props.email + "</a></p>";
+                  layer.bindPopup(locationPopup)
+              }
+          }).addTo(map);
+
     // create object of all layers
     var geoJsonLayers = {
-          greenhouseLayer: greenhouseLayer,
-          nursery_sourceLayer: nursery_sourceLayer,
+          fruitLayer: fruitLayer,
+          nutLayer: nutLayer,
+          FruitNutLayer: FruitNutLayer,
     };
 
     // legend for turning on/off layers
     var sourcesLabels = {
-      "<img src='icons/flower.png' height='35' width='35'><b>&nbsp;Educational Greenhouse</b>": geoJsonLayers.greenhouseLayer,
-      "<img src='icons/nursery_source.png' height='36' width='36'><b>&nbsp;Agritourism Venue</b>": geoJsonLayers.nursery_sourceLayer,
+      "<img src='icons/fruit-icon.png' height='35' width='35'><b>&nbsp;Fruit Nursery</b>": geoJsonLayers.fruitLayer,
+      "<img src='icons/nut-icon.png' height='36' width='36'><b>&nbsp;Nut Nursery</b>": geoJsonLayers.nutLayer,
+      "<img src='icons/fruit&nut-icon.png' height='35' width='35'><b>&nbsp;Fruit and Nut Nursery</b>": geoJsonLayers.FruitNutLayer,
     };
 
     L.control.layers(null, sourcesLabels, { collapsed:true }).addTo(map);
@@ -375,12 +398,16 @@
 
 
     // filtering functions for creating multiple layers from single geojson
-    function nursery_sourceFilter(feature) {
-      if (feature.properties.location_type === "nursery_source") return true
+    function fruitFilter(feature) {
+      if (feature.properties.icon_type === "F") return true
     }
 
-    function greenhouseFilter(feature) {
-      if (feature.properties.location_type === "Educational Greenhouse") return true
+    function nutFilter(feature) {
+      if (feature.properties.icon_type === "N") return true
+    }
+
+    function FruitNutFilter(feature) {
+      if (feature.properties.icon_type === "FN") return true
     }
 
   } // end drawMap()
