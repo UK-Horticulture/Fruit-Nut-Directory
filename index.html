@@ -322,9 +322,18 @@
         onEachFeature : function(feature,layer) {
           var props = feature.properties;
           var locationPopup =
-            "<h2>" + props.resource_t + "</h2>" + "<b>" + props.org_name + "</b>" +
-            "<p>" + props.address + "<br><br><b>Contact Information:  <br></b>" + props.contact_na + "<br>" +
-            props.contact_ti + "<br>" + props.phone + "<br><a href='mailto:" + props.email + "'>" + props.email + "</a></p></p>";
+            "<h2>" + props.name + "&nbsp;&nbsp;&nbsp;" + props.nursery_code + "</h2><br>" +
+            "<b>Physical Address</b><br>" + props.physical_street + "<br>" + props.city + ", " + props.state + " " + props.zip + "<br><br>" +
+            "<b>Mailing Address</b><br>" + props.mailing_street + "<br>" + props.city + ", " + props.state + " " + props.zip + "<br><br>" +
+            "<b>Phone:  </b>" +props.phone + "<br>" +
+            "<b>Fax:  </b>" + props.fax + "<br>" +
+            "<a href='mailto:" + props.email + "'>" + props.email + "</a><br>" +
+            "<a href='" + props.website + "'>" + props.website + "</a><br>" +
+
+
+
+
+            "</p>";
             layer.bindPopup(locationPopup);
         }
       }).addTo(map);
