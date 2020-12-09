@@ -322,7 +322,11 @@
         onEachFeature : function(feature,layer) {
           var props = feature.properties;
           var locationPopup =
-            "<h2>" + props.name + "&nbsp;&nbsp;&nbsp;" + props.nursery_code + "</h2><br>" +
+            "<h2>" + props.name + "&nbsp;&nbsp;&nbsp;" + props.nursery_code + "</h2>" +
+            "<a href='http://www.uky.edu/ccd'><img src=" + props.treefruiticon + " title='Tree Fruits'></a>" +
+            "<a href='http://www.uky.edu/ccd'><img src=" + props.smallfruiticon + " title='Small Fruits'></a>" +
+            "<a href='http://www.uky.edu/ccd'><img src=" + props.nuticon + " title='Nuts'></a>" +
+            "<a href='http://www.uky.edu/ccd'><img src=" + props.suppliesicon + " title='Supplies'></a>" + "<br>" +
             "<b>Physical Address</b><br>" + props.physical_street + "<br>" + props.city + ", " + props.state + " " + props.zip + "<br><br>" +
             "<b>Mailing Address</b><br>" + props.mailing_street + "<br>" + props.city + ", " + props.state + " " + props.zip + "<br><br>" +
             "<b>Phone:  </b>" +props.phone + "<br>" +
