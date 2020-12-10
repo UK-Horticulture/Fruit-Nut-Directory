@@ -116,7 +116,7 @@
     overflow: hidden;
     top: 20%;
     left: 20%;
-    width: 60%;
+    width: 80%;
     padding: 15px 15px;
     background: rgba(256, 256, 256, .85);
     border: 1px solid #005d7e;
@@ -168,7 +168,12 @@
       color: #000000;
   }
 
-
+  th {
+    text-align: center;
+  }
+  td {
+    text-align: center;
+  }
 
   </style>
 </head>
@@ -191,27 +196,51 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <p><h2>About This Map</h2><br>
-        This interactive map shows the locations of resources related to Horticultural Activity
-        across the Commonwealth of Kentucky.</p><br>
+        This interactive map was developed to help locate nursery sources for fruit and nut cultivars that are recommended
+        in Kentucky Cooperative Extension Service publications or commonly asked for in Kentucky.  This map interactive map
+        should be seen as a complementary resource to the publication.<br><br>
+      <a href="https://www.uky.edu/hort/sites/www.uky.edu.hort/files/documents/HortFact_3002_2020.pdf">
+        Horticulture Department Fact Sheet HortFact-3002:  Fruit and Nut Culivar Sources -- 2002</a>.</p><br>
         <h2>Using This Map</h2><br>
-        <p><b>Clicking/tapping</b> an icon on the map shows shows detail.</p><br>
-        <p>The +/- buttons at the top left <b>zoom in and out</b>, as does the mouse wheel, and standard mobile gestures.</p><br>
-        <p>Map <b>resources can be turned on and off</b> by type in the <b>legend at the top right</b>, which will appear after bringing the mouse to or tapping on the <b>Map Layer Icon</b> -> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="images/layers.png"> </p><br>
+        <p><b>Clicking/tapping</b> an icon on the map shows further detail.</p><br>
+        <p>The <b>+/- buttons</b> at the top left <b>zoom in and out</b>, as does the mouse wheel, and standard mobile gestures.</p><br>
+        <p><h2>Icons</h2><br>
+          <table style="width:100%">
+           <tr>
+             <th><img src="./icons/nursery.png"></th>
+             <th><img src="./icons/treefruit-icon.png"></th>
+             <th><img src="./icons/smallfruit-icon.png"></th>
+             <th><img src="./icons/nut-icon.png"></th>
+             <th><img src="./icons/supplies-icon.png"></th>
+           </tr>
+           <tr>
+             <td>Nursery Location</td>
+             <td>Tree Fruit Cultivars</td>
+             <td>Small Fruit Cultivars</td>
+             <td>Nut Cultivars</td>
+             <td>Nursery Supplies</td>
+           </tr>
+           <tr>
+             <td>(map only)</td>
+             <td>available</td>
+             <td>available</td>
+             <td>available</td>
+             <td>available</td>
+           </tr>
+           <tr>
+             <td> </td>
+             <td>(tooltip only)</td>
+             <td>(tooltip only)</td>
+             <td>(tooltip only)</td>
+             <td>(tooltip only)</td>
+           </tr>
+         </table>
+
+        <!-- <p>Map <b>resources can be turned on and off</b> by type in the <b>legend at the top right</b>, which will appear after bringing the mouse to or tapping on the <b>Map Layer Icon</b> -> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="images/layers.png"> </p><br> -->
         <!-- <p>The <b>search box</b> allows users to enter a physical address, city name, or zipcode to <b>place a marker</b>.</p><br> -->
-        <h2>Data Sources</h2><br>
-      <p>The primary data source is the <a href="https://agpolicy.ky.gov/Pages/default.aspx" target="_blank">Governor's
-        Office of Agricultural Policy</a> and the <a href="http://www.kyagr.com/" target="blank">Kentucky Department of Agriculture</a>.<br><br>
-        <h3>&nbsp; &nbsp; &nbsp;Specific Dataset Information</h3>
-        <ul>
-          <li><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Educational Greenhouses</b> - provided by KY-GOAP, March 2018</li>
-          <li><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Farmers' Markets</b> - provided by KDA, June 2018</li>
-          <li><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Produce Auctions</b> - provided by UK CCD, July 2018 <a href="http://www.uky.edu/ccd/pricereports/kypa" target="_blank"><img src="info-tiny.png"></a></li>
-          <li><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Shared Equipment</b> - data provided by KY-GOAP, March 2018 <a href="https://agpolicy.ky.gov/funds/Pages/program-portal.aspx" target="_blank"><img src="info-tiny.png"></a></li>
-          <li><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Roadside Farmstands</b> - data provided by KDA, September 2018 <a href="https://www.kyfb.com/federation/roadside-farm-markets/roadside-farm-market-owners/" target="_blank"><img src="info-tiny.png"></a></li>
-          <li><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Agritourism Venue</b> - data provided by KDA, September 2018 <a href="http://www.kyagr.com/marketing/agritourism.html" target="_blank"><img src="info-tiny.png"></a></li>
-          <li><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Water Testing Lab</b> - data provided by UK Food Connection <a href="https://foodconnection.ca.uky.edu/" target="_blank"><img src="info-tiny.png"></a>
-            <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;and the UK Food Systems Innovation Center, October 2018 <a href="http://www.uky.edu/fsic/" target="_blank"><img src="info-tiny.png"></a></li>
-        </ul><br>
+        <h2>Data Source</h2><br>
+      <p><a href="https://www.uky.edu/hort/sites/www.uky.edu.hort/files/documents/HortFact_3002_2020.pdf" target="_blank">
+        Horticulture Department Fact Sheet HortFact-3002:  Fruit and Nut Culivar Sources -- 2002</a><br><br>
         </p>
         <p><h2>Funding and Support</h2><br><center>
           <a href="https://agpolicy.ky.gov/board/Pages/default.aspx" target="_blank"><img src="images/kadf-logo-footer.gif" hspace="20" vspace="20" border="5"></a>
@@ -276,8 +305,8 @@
 
     // set icons for layer types
     var fruitIcon = L.icon({
-        iconUrl: "./icons/fruit-icon.png",
-        iconSize: [35, 35],
+        iconUrl: "./icons/nursery.png",
+        iconSize: [40, 40],
         popupAnchor: [0, -15]
     });
 
@@ -323,22 +352,24 @@
           var props = feature.properties;
           var locationPopup =
             "<h2>" + props.name + "&nbsp;&nbsp;&nbsp;" + props.nursery_code + "</h2>" +
-            "<a href='http://www.uky.edu/ccd'><img src=" + props.treefruiticon + " title='Tree Fruits'></a>" +
-            "<a href='http://www.uky.edu/ccd'><img src=" + props.smallfruiticon + " title='Small Fruits'></a>" +
-            "<a href='http://www.uky.edu/ccd'><img src=" + props.nuticon + " title='Nuts'></a>" +
-            "<a href='http://www.uky.edu/ccd'><img src=" + props.suppliesicon + " title='Supplies'></a>" + "<br>" +
-            "<b>Physical Address</b><br>" + props.physical_street + "<br>" + props.city + ", " + props.state + " " + props.zip + "<br><br>" +
-            "<b>Mailing Address</b><br>" + props.mailing_street + "<br>" + props.city + ", " + props.state + " " + props.zip + "<br><br>" +
+            props.physical_street + "<br>" + props.city + ", " + props.state + " " + props.zip + "<br><br>" +
             "<b>Phone:  </b>" +props.phone + "<br>" +
-            "<b>Fax:  </b>" + props.fax + "<br>" +
             "<a href='mailto:" + props.email + "'>" + props.email + "</a><br>" +
             "<a href='" + props.website + "'>" + props.website + "</a><br>" +
-
-
-
-
+            "<img src=" + props.treefruiticon + " title='Tree Fruits'>" +
+            "<a href='http://www.uky.edu/ccd'><img src=" + props.smallfruiticon + " title='Small Fruits'></a>" +
+            "<a href='http://www.uky.edu/ccd'><img src=" + props.nuticon + " title='Nuts'></a>" +
+            "<img src=" + props.suppliesicon + " title='Supplies'>" + "<br>" +
+            props.apples + props.cherries + props.figs + props.jujubes + props.kiwi + props.nectarines + props.pawpaws + props.peaches + props.pears + props.persimmons + props.plums +
+            props.blackberries + props.blueberries + props.currants + props.gooseberries + props.grapes + props.raspberries + props.strawberries +
+            props.butternuts + props.chinese_chestnuts + props.hazelnuts_filberts + props.heartnuts + props.hicans
+            + props.hickory_shagbark + props.hickory_shellbark + props.hickory_hybrid + props.pecan_northern
+            + props.walnuts_black + props.walnuts_PersianHardyEnglish + props.almonds +
             "</p>";
-            layer.bindPopup(locationPopup);
+            layer.bindPopup(locationPopup,{
+              maxWidth : 800
+            });
+            ;
         }
       }).addTo(map);
 
@@ -386,7 +417,7 @@
       "<img src='icons/fruit&nut-icon.png' height='35' width='35'><b>&nbsp;Fruit and Nut Nursery</b>": geoJsonLayers.FruitNutLayer,
     };
 
-    L.control.layers(null, sourcesLabels, { collapsed:true }).addTo(map);
+    // L.control.layers(null, sourcesLabels, { collapsed:true }).addTo(map);
 
     // info modal code
     var modal = document.getElementById('myModal');
@@ -408,7 +439,6 @@
             modal.style.display = "none";
         }
     }
-
 
     // filtering functions for creating multiple layers from single geojson
     function fruitFilter(feature) {
@@ -434,7 +464,6 @@
       });
       dataLayer.addTo(map);
   }
-
 
   </script>
 
