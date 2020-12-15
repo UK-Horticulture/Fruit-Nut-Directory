@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
   <style>
+
   #map {
     background: #FFFFFF;
     width: 100%;
@@ -26,13 +27,13 @@
   #title {
     position: absolute;
     bottom: 20px;
-    left: 15px;
+    right: 15px;
     width: 35;
     padding: 6px 12px;
     background: rgba(256, 256, 256, .80);
-    border: 1px solid #005d7e;
+    border: 1px solid #13A02B;
     border-radius: 3px;
-    z-index: 800;
+    z-index: 401;
     font-size: 1.6em;
   }
 
@@ -77,7 +78,7 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: #005d7e; /* Fallback color */
+    background-color: #13A02B; /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
 
@@ -88,7 +89,7 @@
     padding: 20px;
     font-size: 12px;
     line-height: 15px;
-    border: 1px solid #005d7e;
+    border: 1px solid #13A02B;
     border-radius: 5px;
     width: 80%;
     max-width: 640px;
@@ -119,7 +120,7 @@
     width: 80%;
     padding: 15px 15px;
     background: rgba(256, 256, 256, .85);
-    border: 1px solid #005d7e;
+    border: 1px solid #13A02B;
     border-radius: 5px;
     font-size: 12px;
     line-height: 15px;
@@ -128,6 +129,7 @@
   .leaflet-popup-tip,
   .leaflet-popup-content-wrapper {
     z-index: 900;
+    padding: 15px 15px;
   }
 
   .leaflet-touch .leaflet-control-layers-toggle {
@@ -146,26 +148,26 @@
 
 
   h1 {
-    color: #005d7e;
+    color: #13A02B;
     font-weight: bold;
     font-size: 125%;
   }
   h2 {
-      color: #005d7e;
+      color: #13A02B;
       font-weight: bold;
       font-size: 115%;
   }
   h3 {
-      color: #005d7e;
+      color: #13A02B;
       font-weight: bold;
       font-size: 105%;
   }
   a {
-      color: #005d7e;
+      color: #13A02B !important;
       font-weight: bold;
   }
   a:hover {
-      color: #000000;
+      color: #000000 !important;
   }
 
   th {
@@ -181,7 +183,7 @@
 <body>
 
   <section id="title">
-    <b>Fruit and Nut Source Directory</b>
+    <b>Fruit and Nut Cultivar Nursery Sources</b>
   </section>
 
   <div id="map" class='viewport-full viewport-full-ml'></div>
@@ -272,8 +274,8 @@
   <script>
 
   // initialize map, centered on KY
-  var southWest = L.latLng(20, -127),
-      northEast = L.latLng(55, -60),
+  var southWest = L.latLng(20, -160),
+      northEast = L.latLng(80, -20),
       bounds = L.latLngBounds(southWest, northEast);
 
   var map = L.map('map', {
@@ -297,7 +299,7 @@
 
   // set display style for county polygons
     var stateStyle = {
-        "color": "#000000",
+        "color": "#CE974F",
         "weight": 2,
         "fillOpacity" : 0.1,
         "opacity": 0.5
@@ -357,8 +359,8 @@
             "<a href='mailto:" + props.email + "'>" + props.email + "</a><br>" +
             "<a href='" + props.website + "'>" + props.website + "</a><br>" +
             "<img src=" + props.treefruiticon + " title='Tree Fruits'>" +
-            "<a href='http://www.uky.edu/ccd'><img src=" + props.smallfruiticon + " title='Small Fruits'></a>" +
-            "<a href='http://www.uky.edu/ccd'><img src=" + props.nuticon + " title='Nuts'></a>" +
+            "<img src=" + props.smallfruiticon + " title='Small Fruits'>" +
+            "<img src=" + props.nuticon + " title='Nuts'>" +
             "<img src=" + props.suppliesicon + " title='Supplies'>" + "<br>" +
             props.apples + props.cherries + props.figs + props.jujubes + props.kiwi + props.nectarines + props.pawpaws + props.peaches + props.pears + props.persimmons + props.plums +
             props.blackberries + props.blueberries + props.currants + props.gooseberries + props.grapes + props.raspberries + props.strawberries +
@@ -367,7 +369,12 @@
             + props.walnuts_black + props.walnuts_PersianHardyEnglish + props.almonds +
             "</p>";
             layer.bindPopup(locationPopup,{
-              maxWidth : 800
+              maxWidth : 800,
+              autoPanPaddingTopLeft : 40,
+              autoPanPaddingBottomRight : 40,
+              keepInView : true
+
+
             });
             ;
         }
