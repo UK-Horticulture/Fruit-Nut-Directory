@@ -327,7 +327,7 @@
   $.getJSON("./data/us-states.geojson", function(states) {
 
         // load CSV file
-        omnivore.csv('/data/geocode-fruit-nut-directory.csv')
+        omnivore.csv('./data/geocode-fruit-nut-directory.csv')
         .on('ready', function(e) {
             drawMap(e.target.toGeoJSON());
             console.log(e);
