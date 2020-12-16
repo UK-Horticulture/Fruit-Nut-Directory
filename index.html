@@ -353,15 +353,12 @@
         onEachFeature : function(feature,layer) {
           var props = feature.properties;
           var locationPopup =
-            "<h2>" + props.name + "&nbsp;&nbsp;&nbsp;" + props.nursery_code + "</h2>" +
-            props.physical_street + "<br>" + props.city + ", " + props.state + " " + props.zip + "<br><br>" +
-            "<b>Phone:  </b>" +props.phone + "<br>" +
-            "<a href='mailto:" + props.email + "'>" + props.email + "</a><br>" +
-            "<a href='" + props.website + "'>" + props.website + "</a><br>" +
-            "<img src=" + props.treefruiticon + " title='Tree Fruits'>" +
-            "<img src=" + props.smallfruiticon + " title='Small Fruits'>" +
-            "<img src=" + props.nuticon + " title='Nuts'>" +
-            "<img src=" + props.suppliesicon + " title='Supplies'>" + "<br>" +
+            "<img align='right' src=" + props.suppliesicon + " title='Supplies'>" +
+            "<img align='right' src=" + props.nuticon + " title='Nuts'>" +
+            "<img align='right' src=" + props.smallfruiticon + " title='Small Fruits'>" +
+            "<img align='right' src=" + props.treefruiticon + " title='Tree Fruits'>" +
+            "<table width=80%><tr><th><h2>" + props.name + "</h2></th><th><a href='" + props.website + "'>" + props.website
+            + "</a></th></tr><tr><td>" + props.physical_street + "<br>" + props.city + ", " + props.state + " " + props.zip +"</td><td><a href='mailto:" + props.email + "'>" + props.email + "</a><br>" + props.phone + "</td></tr></table><br>" +
             props.apples + props.cherries + props.figs + props.jujubes + props.kiwi + props.nectarines + props.pawpaws + props.peaches + props.pears + props.persimmons + props.plums +
             props.blackberries + props.blueberries + props.currants + props.gooseberries + props.grapes + props.raspberries + props.strawberries +
             props.butternuts + props.chinese_chestnuts + props.hazelnuts_filberts + props.heartnuts + props.hicans
