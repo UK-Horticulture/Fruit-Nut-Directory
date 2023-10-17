@@ -274,8 +274,8 @@
   <script>
 
   // initialize map, centered on KY
-  var southWest = L.latLng(20, -160),
-      northEast = L.latLng(80, -20),
+  var southWest = L.latLng(10, -160),
+      northEast = L.latLng(60, -20),
       bounds = L.latLngBounds(southWest, northEast);
 
   var map = L.map('map', {
@@ -286,8 +286,6 @@
       minZoom: 4.5,
       maxZoom: 18,
     });
-
-    const apiKey = "AAPK659334e1efc64f208d8a56f5b0ad5874pqguZvMXNug-iom9Oiv37Jx8OGXSdwTKz7g93KQd4QU--BIHU9NLcXZJkWCf7wiL";
 
   // request a mapbox raster tile layer and add to map
      L.tileLayer.provider('USGS.USTopo').addTo(map);
@@ -328,7 +326,7 @@
 
 
     // load KY county polygons
-  $.getJSON("./data/us-states.geojson", function(states) {
+  $.getJSON("./data/48-states.geojson", function(states) {
 
         // load CSV file
         omnivore.csv('./data/geocode-fruit-nut-directory.csv')
